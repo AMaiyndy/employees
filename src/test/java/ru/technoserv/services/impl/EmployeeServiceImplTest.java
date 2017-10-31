@@ -93,6 +93,17 @@ public class EmployeeServiceImplTest {
 
     @Test
     public void getEmployee() throws Exception {
+        Employee expected = Employee.newBuilder()
+                .empId(1).position(new Position(1, "Начальник отдела")).grade(new Grade(1, "A"))
+                .lastName("Миров").firstName("Евгений").patrName("Артурович")
+                .department(getNewDep(1, null, "Головной", 1))
+                .gender("М").birthday(Date.valueOf(LocalDate.of(1983, 2, 23)))
+                .salary(new BigDecimal(1000.00)).build();
+
+        when(employeeDao.read(1)).thenReturn(created);
+
+        Employee actual = employeeService.getEmployee(1);
+        assertEquals(expected, actual);
     }
 
 }

@@ -153,4 +153,11 @@ public class DepartmentControllerTest {
                 .andExpect(jsonPath("deptName", is("Закупки")))
                 .andExpect(jsonPath("deptHeadId", isEmptyOrNullString()));
     }
+
+
+    @Test
+    public void getHierarchy() throws Exception {
+
+    }
+
 }
